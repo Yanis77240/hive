@@ -4,7 +4,7 @@ The version 3.1.3-TDP-0.1.0-SNAPSHOT of Apache Hive is based on the `branch-3.1`
 
 ## Jenkinfile
 
-The file `./Jenkinsfile-sample` can be used in a Jenkins / Kubernetes environment to build and execute the unit tests of the Hadoop project. See []() for details on the environment.
+The file `./Jenkinsfile-sample` can be used in a Jenkins / Kubernetes environment to build and execute the unit tests of the Hive project. See []() for details on the environment.
 
 ## Making a release
 
