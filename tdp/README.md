@@ -17,7 +17,7 @@ mvn clean install -Pdist -DskipTests
 ## Testing parameters
 
 ```
-mvn test -T 4 -DforkCount=4 -Dsurefire.rerunFailingTestsCount=3 --fail-never
+mvn test -T 4 -DforkCount=4 -Dsurefire.rerunFailingTestsCount=3 --fail-never -Drat.numUnapprovedLicenses=1000
 ```
 
 - -T 4: Thread count
