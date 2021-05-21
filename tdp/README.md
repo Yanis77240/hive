@@ -28,3 +28,14 @@ mvn test -T 4 -DforkCount=4 -Dsurefire.rerunFailingTestsCount=3 --fail-never -Dr
 ## Test execution notes
 
 See `./test_notes.txt`
+
+## Build notes
+
+The following error was encountered after adding the Ranger Hive plugin JARs to Hive server2:
+
+```
+2021-05-20T15:09:14,571  WARN [main] server.HiveServer2: Error starting HiveServer2 on attempt 1, will retry in 60000ms
+java.lang.IncompatibleClassChangeError: com.sun.jersey.json.impl.provider.entity.JSONRootElementProvider and com.sun.jersey.json.impl.provider.entity.JSONRootElementProvider$Wadl disagree on InnerClasses attribute
+```
+
+The issue was that the version of `jersey-json` embedded by Tez is too old compared to the one used in Ranger (see `tez/tdp/README.md` for details).
