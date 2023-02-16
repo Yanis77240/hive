@@ -189,6 +189,11 @@
       </snapshots>
     </repository>
     <repository>
+      <id>nexus</id>
+      <name>my Nexus</name>
+      <url>http://172.19.0.2:8081/repository/my-maven-test/</url>
+    </repository>
+    <repository>
       <id>glassfish-repository</id>
       <url>http://maven.glassfish.org/content/groups/glassfish</url>
       <releases>
@@ -219,6 +224,14 @@
        </snapshots>
     </repository>
   </repositories>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus</id>
+      <name>my Nexus</name>
+      <url>http://172.19.0.2:8081/repository/my-maven-test/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <!-- Hadoop dependency management is done at the bottom under profiles -->
   <dependencyManagement>
