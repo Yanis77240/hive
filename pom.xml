@@ -220,6 +220,11 @@
       </releases>
     </repository>
     <repository>
+      <id>nexus</id>
+      <name>my Nexus</name>
+      <url>http://172.19.0.2:8081/repository/my-maven-test/</url>
+    </repository>
+    <repository>
       <id>conjars</id>
       <name>Conjars</name>
       <url>http://conjars.org/repo</url>
@@ -231,6 +236,14 @@
       </releases>
     </repository>
   </repositories>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus</id>
+      <name>my Nexus</name>
+      <url>http://172.19.0.2:8081/repository/my-maven-test/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>
