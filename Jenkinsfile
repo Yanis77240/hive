@@ -8,6 +8,11 @@ pipeline {
         pollSCM '0 1 * * *'
       }
     stages {
+        stage ('Invoke pipeline tdp-tez') {
+            steps {
+                build job: 'tdp-tez'
+            }
+        }        
         stage('clone') {
             steps {
                 echo "Cloning..."
