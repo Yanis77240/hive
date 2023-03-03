@@ -22,6 +22,14 @@ pipeline {
                 '''
             }
         }
+        stage('Test') {
+            steps {
+                echo "Testing..."
+                sh '''
+                mvn clean test -Phadoop-2 --fail-never
+                '''
+            }
+        }        
         stage("Publish to Nexus Repository Manager") {
             steps {
                 echo "Deploy..."
