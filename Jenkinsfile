@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo "Building..."
                 sh '''
-                mvn clean install -Phadoop-2 -DskipTests
+                mvn clean install -Pdist -Phadoop-2 -DskipTests
                 '''
             }
         }
