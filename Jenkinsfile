@@ -37,7 +37,7 @@ pipeline {
             steps {
                 echo "Deploy..."
                 withCredentials([usernamePassword(credentialsId: '4b87bd68-ad4c-11ed-afa1-0242ac120002', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                    sh 'mvn deploy -Pdist -DskipTests -s settings.xml'
+                    sh 'mvn clean deploy -Pdist -DskipTests -s settings.xml'
                 }
             }        
         }
