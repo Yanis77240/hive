@@ -171,6 +171,11 @@
     <felix.version>2.4.0</felix.version>
     <curator.version>2.6.0</curator.version>
     <jsr305.version>3.0.0</jsr305.version>
+
+    <!-- Repository properties -->
+    <distMgmtSnapshotsId>nexus</distMgmtSnapshotsId>
+    <distMgmtSnapshotsName>my Nexus</distMgmtSnapshotsName>
+    <distMgmtSnapshotsUrl>http://10.110.4.212:8081/repository/my-maven-test/</distMgmtSnapshotsUrl>
   </properties>
 
   <repositories>
@@ -189,9 +194,9 @@
       </snapshots>
     </repository>
     <repository>
-      <id>nexus</id>
-      <name>my Nexus</name>
-      <url>http://172.19.0.2:8081/repository/my-maven-test/</url>
+      <id>${distMgmtSnapshotsId}</id>
+      <name>${distMgmtSnapshotsName}</name>
+      <url>${distMgmtSnapshotsUrl}</url>
     </repository>
     <repository>
       <id>glassfish-repository</id>
@@ -227,9 +232,9 @@
 
   <distributionManagement>
     <snapshotRepository>
-      <id>nexus</id>
-      <name>my Nexus</name>
-      <url>http://172.19.0.2:8081/repository/my-maven-test/</url>
+      <id>${distMgmtSnapshotsId}</id>
+      <name>${distMgmtSnapshotsName}</name>
+      <url>${distMgmtSnapshotsUrl}</url>
     </snapshotRepository>
   </distributionManagement>
 
