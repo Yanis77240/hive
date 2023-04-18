@@ -206,6 +206,10 @@
     <jsr305.version>3.0.0</jsr305.version>
     <tephra.version>0.6.0</tephra.version>
     <gson.version>2.2.4</gson.version>
+    <!-- Repository properties -->
+    <distMgmtSnapshotsId>nexus</distMgmtSnapshotsId>
+    <distMgmtSnapshotsName>My nexus</distMgmtSnapshotsName>
+    <distMgmtSnapshotsUrl>http://10.110.4.212:8081/repository/my-maven-test/</distMgmtSnapshotsUrl>
   </properties>
 
   <repositories>
@@ -220,9 +224,9 @@
       </releases>
     </repository>
     <repository>
-      <id>nexus</id>
-      <name>my Nexus</name>
-      <url>http://172.19.0.2:8081/repository/my-maven-test/</url>
+      <id>${distMgmtSnapshotsId}</id>
+      <name>${distMgmtSnapshotsName}</name>
+      <url>${distMgmtSnapshotsUrl}</url>
     </repository>
     <repository>
       <id>conjars</id>
@@ -239,9 +243,9 @@
 
   <distributionManagement>
     <snapshotRepository>
-      <id>nexus</id>
-      <name>my Nexus</name>
-      <url>http://172.19.0.2:8081/repository/my-maven-test/</url>
+      <id>${distMgmtSnapshotsId}</id>
+      <name>${distMgmtSnapshotsName}</name>
+      <url>${distMgmtSnapshotsUrl}</url>
     </snapshotRepository>
   </distributionManagement>
 
