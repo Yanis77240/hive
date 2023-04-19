@@ -229,9 +229,9 @@
       <url>${distMgmtSnapshotsUrl}</url>
     </repository>
     <repository>
-      <id>conjars</id>
-      <name>Conjars</name>
-      <url>http://conjars.org/repo</url>
+      <id>spring</id>
+      <name>Spring</name>
+      <url>https://repo.spring.io/ui/native/libs-milestone</url>
       <layout>default</layout>
       <releases>
         <enabled>true</enabled>
