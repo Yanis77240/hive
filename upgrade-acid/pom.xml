@@ -33,7 +33,7 @@
 
     <properties>
         <!-- Build properties -->
-        <distMgmtSnapshotsID combine.self="override">nexus</distMgmtSnapshotsName>
+        <distMgmtSnapshotsID>nexus</distMgmtSnapshotsID>
         <distMgmtSnapshotsName combine.self="override">my nexus</distMgmtSnapshotsName>
         <distMgmtSnapshotsUrl combine.self="override">http://10.110.4.212:8081/repository/my-maven-test/</distMgmtSnapshotsUrl>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
