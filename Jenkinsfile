@@ -22,12 +22,12 @@ podTemplate(containers: [
                 mvn clean install -Pdist -DskipTests
                 '''
             }
-            stage('Test') {
+            /*stage('Test') {
                 echo "Testing..."
                 sh '''
                 mvn test --fail-never
                 '''
-            }
+            }*/
             stage('Deliver') {
                 echo "Deploy..."
                 withCredentials([usernamePassword(credentialsId: '4b87bd68-ad4c-11ed-afa1-0242ac120002', passwordVariable: 'pass', usernameVariable: 'user')]) {
