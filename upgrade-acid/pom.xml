@@ -33,7 +33,6 @@
 
     <properties>
         <!-- Build properties -->
-        <distMgmtSnapshotsID>nexus</distMgmtSnapshotsID>
         <distMgmtSnapshotsName>my nexus</distMgmtSnapshotsName>
         <distMgmtSnapshotsUrl>http://10.110.4.212:8081/repository/my-maven-test/</distMgmtSnapshotsUrl>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -138,7 +137,7 @@ java.io.IOException: Cannot initialize Cluster. Please check your configuration 
       <url>https://repository.apache.org/service/local/staging/deploy/maven2</url>
     </repository>
     <snapshotRepository>
-      <id>${distMgmtSnapshotsId}</id>
+      <id>nexus</id>
       <name>${distMgmtSnapshotsName}</name>
       <url>${distMgmtSnapshotsUrl}</url>
     </snapshotRepository>
