@@ -34,8 +34,8 @@
     <properties>
         <!-- Build properties -->
         <distMgmtSnapshotsID>nexus</distMgmtSnapshotsID>
-        <distMgmtSnapshotsName combine.self="override">my nexus</distMgmtSnapshotsName>
-        <distMgmtSnapshotsUrl combine.self="override">http://10.110.4.212:8081/repository/my-maven-test/</distMgmtSnapshotsUrl>
+        <distMgmtSnapshotsName>my nexus</distMgmtSnapshotsName>
+        <distMgmtSnapshotsUrl>http://10.110.4.212:8081/repository/my-maven-test/</distMgmtSnapshotsUrl>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
