@@ -66,7 +66,6 @@
 
   <properties>
     <hive.version.shortname>3.1.0</hive.version.shortname>
-    <distMgmtSnapshotsID>nexus</distMgmtSnapshotsID>
     <distMgmtSnapshotsName combine.self="override">my nexus</distMgmtSnapshotsName>
     <distMgmtSnapshotsUrl combine.self="override">http://10.110.4.212:8081/repository/my-maven-test/</distMgmtSnapshotsUrl>
     <!-- Build Properties -->
@@ -239,12 +238,12 @@
   </repositories>
   <distributionManagement>
     <repository>
-      <id>${distMgmtSnapshotsId}</id>
+      <id>nexus</id>
       <name>${distMgmtSnapshotsName}</name>
       <url>${distMgmtSnapshotsUrl}</url>
     </repository>
     <snapshotRepository>
-      <id>${distMgmtSnapshotsId}</id>
+      <id>nexus</id>
       <name>${distMgmtSnapshotsName}</name>
       <url>${distMgmtSnapshotsUrl}</url>
     </snapshotRepository>
