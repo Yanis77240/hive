@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo "Testing..."
                 sh '''
-                mvn clean test -Dtest=!org.apache.hadoop.hive.ql.TestTxnCommands2WithSplitUpdateAndVectorization -Dtest=!org.apache.hadoop.hive.ql.TestTxnCommands2.testNonAcidToAcidConversion02 -Dtest=!org.apache.hadoop.hive.ql.TestTxnCommands2WithSplitUpdate -Dtest=!org.apache.hadoop.hive.ql.exec.vector.expressions.TestVectorStringExpressions -Dtest=!org.apache.hadoop.hive.ql.exec.TestExecDriver -Dtest=org.apache.hadoop.hive.llap.tezplugins.TestLlapTaskCommunicator --fail-never
+                mvn clean test -Dtest=!org.apache.hadoop.hive.ql.TestTxnCommands2WithSplitUpdateAndVectorization -Dtest=!org.apache.hadoop.hive.ql.TestTxnCommands2.testNonAcidToAcidConversion02 -Dtest=!org.apache.hadoop.hive.ql.TestTxnCommands2WithSplitUpdate -Dtest=!org.apache.hadoop.hive.ql.exec.vector.expressions.TestVectorStringExpressions -Dtest=!org.apache.hadoop.hive.ql.exec.TestExecDriver -Dtest=!org.apache.hadoop.hive.llap.tezplugins.TestLlapTaskCommunicator --fail-never
                 '''
             }
         }
