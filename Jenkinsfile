@@ -25,19 +25,19 @@ pipeline {
                 '''
             }
         }
-        /*stage('Test') {
+        stage('Test') {
             steps {
                 echo "Testing..."
                 sh '''
-                mvn test -Phadoop-2 --fail-never
+                mvn clean test -Phadoop-2 --fail-never
                 '''
             }
-        }*/        
+        }        
         stage("Publish to Nexus Repository Manager") {
             steps {
                 echo "Deploy..."
                 withCredentials([usernamePassword(credentialsId: '4b87bd68-ad4c-11ed-afa1-0242ac120002', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                    sh 'mvn clean deploy -Phadoop-2 -DskipTests -s settings.xml'
+                    sh 'mvn clean deploy -Pdist -Phadoop-2 -DskipTests -s settings.xml'
                 }
             }        
         }
