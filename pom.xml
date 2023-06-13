@@ -229,9 +229,9 @@
       <url>${distMgmtSnapshotsUrl}</url>
     </repository>
     <repository>
-      <id>huaweicloud</id>
-      <name>Huaweicloud</name>
-      <url>https://repo.huaweicloud.com/repository/maven/huaweicloudsdk/</url>
+      <id>wikimedia</id>
+      <name>Wikimedia</name>
+      <url>https://archiva.wikimedia.org/repository/mirrored/</url>
       <layout>default</layout>
       <releases>
         <enabled>true</enabled>
