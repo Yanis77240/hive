@@ -36,11 +36,13 @@ podTemplate(containers: [
             }
             stage("Publish tar.gz to Nexus") {
                 echo "Publish tar.gz..."
-                withCredentials([usernamePassword(credentialsId: '4b87bd68-ad4c-11ed-afa1-0242ac120002', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                    sh '''
-                    curl -v -u $user:$pass --upload-file packaging/target/apache-hive-1.2.3-TDP-0.1.0-SNAPSHOT-bin.tar.gz http://10.110.4.212:8081/repository/maven-tar-files/hive-1.2/apache-hive-1.2.3-TDP-0.1.0-SNAPSHOT-bin-${number}.tar.gz
-                    curl -v -u $user:$pass --upload-file packaging/target/apache-hive-1.2.3-TDP-0.1.0-SNAPSHOT-src.tar.gz http://10.110.4.212:8081/repository/maven-tar-files/hive-1.2/apache-hive-1.2.3-TDP-0.1.0-SNAPSHOT-src-${number}.tar.gz
-                    '''
+                withEnv(["number=${currentBuild.number}"]) {
+                    withCredentials([usernamePassword(credentialsId: '4b87bd68-ad4c-11ed-afa1-0242ac120002', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                        sh '''
+                        curl -v -u $user:$pass --upload-file packaging/target/apache-hive-1.2.3-TDP-0.1.0-SNAPSHOT-bin.tar.gz http://10.110.4.212:8081/repository/maven-tar-files/hive-1.2/apache-hive-1.2.3-TDP-0.1.0-SNAPSHOT-bin-${number}.tar.gz
+                        curl -v -u $user:$pass --upload-file packaging/target/apache-hive-1.2.3-TDP-0.1.0-SNAPSHOT-src.tar.gz http://10.110.4.212:8081/repository/maven-tar-files/hive-1.2/apache-hive-1.2.3-TDP-0.1.0-SNAPSHOT-src-${number}.tar.gz
+                        '''
+                    }
                 }
             }       
         }
