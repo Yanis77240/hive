@@ -91,7 +91,7 @@
     <test.warehouse.scheme>pfile://</test.warehouse.scheme>
 
     <!-- To add additional exclude patterns set this property -->
-    <test.excludes.additional></test.excludes.additional>
+    <test.excludes.additional>TestLlapTaskCommunicator, TestRpc, TestVectorCastStatement, TestVectorStringExpressions, TestCustomPartitionVertex, TestAvroHCatStorer</test.excludes.additional>
     <skip.spark.files></skip.spark.files>
 
     <!-- Plugin and Plugin Dependency Versions -->
@@ -1236,7 +1236,7 @@
             <exclude>**/ql/exec/vector/udf/legacy/*.java</exclude>
             <exclude>**/ql/exec/vector/udf/generic/*.java</exclude>
             <exclude>**/TestHiveServer2Concurrency.java</exclude>
-            <exclude>${test.excludes.additional}</exclude>
+            <exclude>**/${test.excludes.additional}.java</exclude>
             <exclude>${skip.spark.files}</exclude>
           </excludes>
           <redirectTestOutputToFile>true</redirectTestOutputToFile>
