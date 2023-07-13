@@ -25,7 +25,7 @@ podTemplate(containers: [
             stage('Test') {
                 echo "Testing..."
                 sh '''
-                mvn clean test --fail-never
+                mvn clean test -Dsurefire.rerunFailingTestsCount=3
                 '''
             }
             stage('Deliver') {
