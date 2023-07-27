@@ -91,7 +91,7 @@
     <test.warehouse.scheme>pfile://</test.warehouse.scheme>
 
     <!-- To add additional exclude patterns set this property -->
-    <test.excludes.additional>TestLlapTaskCommunicator, TestRpc, TestVectorCastStatement, TestVectorStringExpressions, TestCustomPartitionVertex, TestAvroHCatStorer, TestRuntimeStats</test.excludes.additional>
+    <!--<test.excludes.additional>TestLlapTaskCommunicator, TestRpc, TestVectorCastStatement, TestVectorStringExpressions, TestCustomPartitionVertex, TestAvroHCatStorer, TestRuntimeStats</test.excludes.additional>-->
     <skip.spark.files></skip.spark.files>
 
     <!-- Plugin and Plugin Dependency Versions -->
@@ -1492,6 +1492,15 @@
               <maxHeap>2048</maxHeap>
               <jvmArgs>-Djava.awt.headless=true -Xmx2048m -Xms512m</jvmArgs>
               <excludeFilterFile>${basedir}/${hive.path.to.root}/findbugs/findbugs-exclude.xml</excludeFilterFile>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>3.1.2</version>
+            <configuration>
+              <aggregate>true</aggregate>
+              <linkXRef>true</linkXRef>
             </configuration>
           </plugin>
         </plugins>
