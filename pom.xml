@@ -83,7 +83,7 @@
     <test.warehouse.scheme>pfile://</test.warehouse.scheme>
 
     <!-- To add additional exclude patterns set this property -->
-    <test.excludes.additional>TestVectorStringExpressions, TestTxnCommands2WithSplitUpdateAndVectorization, TestTxnCommands2WithSplitUpdate, TestTxnCommands2, TestLlapTaskCommunicator</test.excludes.additional>
+    <!--<test.excludes.additional>TestVectorStringExpressions, TestTxnCommands2WithSplitUpdateAndVectorization, TestTxnCommands2WithSplitUpdate, TestTxnCommands2, TestLlapTaskCommunicator</test.excludes.additional>-->
     <skip.spark.files></skip.spark.files>
 
     <!-- Plugin and Plugin Dependency Versions -->
@@ -1173,6 +1173,20 @@
       </plugin>
     </plugins>
   </build>
+
+    <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <aggregate>true</aggregate>
+          <linkXRef>true</linkXRef>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 
   <profiles>
     <profile>
