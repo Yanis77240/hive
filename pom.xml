@@ -1174,7 +1174,7 @@
     </plugins>
   </build>
 
-    <reporting>
+  <reporting>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
