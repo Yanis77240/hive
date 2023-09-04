@@ -19,8 +19,8 @@ podTemplate(containers: [
                         sh '''
                         cd test_comparison
                         curl -v http://10.10.10.11:30000/repository/java-test-reports/hive2/${file} > ${file}
-                        python3 comparison-file-check.py ${file}
-                        echo "python3 main.py ${number} ${file}" > transformation.sh
+                        python3 src/python/comparison-file-check.py ${file}
+                        echo "python3 src/python/main.py 3.0.0 ${number} ${file}" > transformation.sh
                         chmod 777 transformation.sh
                         '''
                     }
@@ -43,19 +43,12 @@ podTemplate(containers: [
                         sh 'mvn surefire-report:report-only  -Daggregate=true'
                         sh 'curl -v -u $user:$pass --upload-file target/site/surefire-report.html http://10.110.4.212:8081/repository/test-reports/hive-2.3/surefire-report-${number}.html'
                         /* extract the scalatest-plugin data and java-test data output and remove all color signs */
-                        sh script: $/
-                        # Create CVS file with following titles as header
-                        echo "Tests_run, Failures, Errors, Skipped, Test_group" > test_comparison/output-tests.csv
-                        # Grep all Java test staistics in CSV file
-                        grep -E --color=never 'Failures:| Errors:| Skipped:' output.txt | awk '/Failures:/ && /Errors:/ && /Skipped:/' >> test_comparison/output-tests.csv
-                        # Generate text file with all failed Java tests without any colors
-                        grep -E --color=never '[Error].*org.*<<< ERROR!|[Error].*org.*<<< FAILURE!' output.txt | sed -r "s|\x1B\[[0-9;]*[mK]||g" > test_comparison/java-test-failures.txt
-                        /$
+                        sh'./test_comparison/src/grep_commands/grep-surefire-3.0.0.sh'
                         /* Perform the data transformation and the comparison*/
                         sh '''
                         cd test_comparison
                         ./transformation.sh
-                        ./decision.sh ${number}
+                        ./src/decision.sh ${number}
                         curl -v -u $user:$pass --upload-file results-${number}.json http://10.110.4.212:8081/repository/java-test-reports/hadoop/results-${number}.json
                         '''
                     }
