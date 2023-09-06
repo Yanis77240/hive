@@ -43,7 +43,7 @@ podTemplate(containers: [
                         sh 'mvn surefire-report:report-only  -Daggregate=true'
                         sh 'curl -v -u $user:$pass --upload-file target/site/surefire-report.html http://10.110.4.212:8081/repository/test-reports/hive-2.3/surefire-report-${number}.html'
                         /* extract the scalatest-plugin data and java-test data output and remove all color signs */
-                        sh'./test-comparison/src/grep_commands/grep-surefire-3.0.0.sh'
+                        sh'./test-comparison/src/grep-commands/grep-surefire-3.0.0.sh'
                         /* Perform the data transformation and the comparison*/
                         sh '''
                         cd test-comparison
