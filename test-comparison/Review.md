@@ -12,7 +12,7 @@ The Python functions work with Python >= 3.6. The code varies a little wether yo
 
 ## How to integrate the function into the project
 
-1. Paste the folder `test_comparison` at the root of the project in the github repository.
+1. Paste the folder `test-comparison` at the root of the project in the github repository.
 
 2. In the Jenkinsfile, add the two following stages:
 
@@ -21,9 +21,9 @@ stage('Chose comparison') {
     withEnv(["file=${input message: 'Select file in http://10.10.10.11:30000/repository/scala-test-reports/', parameters: [string('number of results file')]}"]) {
         withEnv(["number=${currentBuild.number}"]) {
             sh '''
-            cd test_comparison
+            cd test-comparison
             curl -v http://path_to_the_project_results_directory/${file} > ${file}
-            python3 src/python/comparison-file-check.py ${file}
+            python3 src/python/comparison_file_check.py ${file}
             echo "python3 src/python/main.py {surefire-version} ${number} ${file}" > transformation.sh
             chmod 777 transformation.sh
             '''
@@ -46,11 +46,11 @@ stage('Test') {
             /*sh 'mvn surefire-report:report-only  -Daggregate=true'
             sh 'curl -v -u $user:$pass --upload-file target/site/surefire-report.html http://path_to_reporting_directory/surefire-report-${number}.html'
             /* extract the java-test and scalatest-plugin data output and remove all color signs */
-            sh'./test_comparison/src/grep_commands/grep-surefire-{version}.sh'
-            /*sh'./test_comparison/src/grep_commands/grep-scalatest.sh'*/
+            sh'./test-comparison/src/grep-commands/grep-surefire-{version}.sh'
+            /*sh'./test-comparison/src/grep-commands/grep-scalatest.sh'*/
             /* Perform the data transformation and the comparison*/
             sh '''
-            cd test_comparison
+            cd test-comparison
             ./transformation.sh
             ./src/decision.sh ${number}
             curl -v -u $user:$pass --upload-file results-${number}.json http://path_to_the_project_results_directory/results-${number}.json
@@ -76,6 +76,6 @@ sh 'curl -v -u $user:$pass --upload-file target/site/surefire-report.html http:/
 
 7. Put the adequate surefire version grep command file
 
-8. If you have scalatests comment out the command `sh'./test_comparison/src/grep_commands/grep-scalatest.sh'`
+8. If you have scalatests comment out the command `sh'./test-comparison/src/grep-commands/grep-scalatest.sh'`
 
 9. In the `decision.sh` script, Set the path to the test comparison folder in the external repository.
