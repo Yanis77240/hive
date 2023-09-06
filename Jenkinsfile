@@ -9,7 +9,6 @@ podTemplate(containers: [
 
     node(POD_LABEL) {
         container('tdp-builder') {
-            }
             stage('Git Clone') {
                 echo "Cloning..."
                 git branch: 'branch-3.1-TDP-alliage-k8s', url: 'https://github.com/Yanis77240/hive'
