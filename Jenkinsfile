@@ -18,7 +18,7 @@ podTemplate(containers: [
                     withEnv(["number=${currentBuild.number}"]) {
                         sh '''
                         cd test-comparison
-                        curl -v http://repository/component-test-comparison/hive2/${file} > ${file}
+                        curl -v http://10.110.4.212:8081/repository/component-test-comparison/hive2/${file} > ${file}
                         python3 src/python/comparison_file_check.py ${file}
                         echo "python3 src/python/main.py 3.0.0 ${number} ${file}" > transformation.sh
                         chmod 777 transformation.sh
