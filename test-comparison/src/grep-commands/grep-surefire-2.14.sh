@@ -4,7 +4,7 @@
 echo "Tests_run, Failures, Errors, Skipped, Test_group" > test-comparison/output-tests.csv
 
 # Grep all Java test statistics in a temporary txt file
-grep -E --color=never -B 1 --no-group-separator '(Failures:.*Errors:.*Skipped:.*Time elapsed:)' output.txt > /test-comparison/temp-output-test.txt
+grep -E --color=never -B 1 --no-group-separator '(Failures:.*Errors:.*Skipped:.*Time elapsed:)' output.txt > test-comparison/temp-output-test.txt
 
 # Add the testclass name at the end of the statistics line
 awk '/^Running/ { prev = $0; next } { print $0 " " prev; prev = "" }' test-comparison/temp-output-test.txt >> test-comparison/output-tests.csv

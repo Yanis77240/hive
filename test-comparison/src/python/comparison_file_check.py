@@ -1,4 +1,4 @@
-# comparison-file-check.py
+# comparison_file_check.py
 
 import pandas as pd
 import sys

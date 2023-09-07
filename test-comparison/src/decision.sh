@@ -9,7 +9,7 @@ file="comparison.csv"
 if [ -s "$file" ]; then # if the file is not empty
     echo "There are new errors compared to the comparison run."
     # we send the list with the additional errors to the nexus repository
-    curl -v -u $user:$pass --upload-file "$file" http://10.10.10.11:30000/repository/component-test-comparison/hive1-comparison-"$build_number".csv # Set the path to the test comparison folder in the external repository.
+    curl -v -u $user:$pass --upload-file "$file" http://10.110.4.212:8081/repository/component-test-comparison/tez-0.92/tez-0.92-comparison-"$build_number".csv # Set the path to the test comparison folder in the external repository.
     exit 1  # Exit with an error code
 else
     echo "No new errors in the tests."

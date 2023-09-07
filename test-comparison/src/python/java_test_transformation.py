@@ -1,7 +1,6 @@
 # java_test_transformation.py
 
 import pandas as pd
-import numpy as np
 import sys
 import os
 import json
@@ -154,7 +153,7 @@ def java_test_transfomer(surefire_version, build_number):
         # There shouldn't be any duplicates but if there are we should drop them
         df = df.drop_duplicates()
         # Replace all NaN with None in the dataframe
-        df.replace(np.nan, None, inplace=True)
+        df = df.where(pd.notna(df), None)
 
         # Convert DataFrame to a nested dictionary
         # Create a dictionnary
