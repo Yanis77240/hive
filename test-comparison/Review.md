@@ -41,7 +41,7 @@ stage('Test') {
         withEnv(["number=${currentBuild.number}"]) {
             /* Perform the tests and the surefire reporting*/
             /*sh '''
-            mvn clean test [-options] --fail-never -Dstyle.color=never | tee ../output.txt
+            mvn clean test [-options] --fail-never -Dstyle.color=never | tee output.txt
             '''*/
             /*sh 'mvn surefire-report:report-only  -Daggregate=true'
             sh 'curl -v -u $user:$pass --upload-file target/site/surefire-report.html http://path_to_reporting_directory/surefire-report-${number}.html'
