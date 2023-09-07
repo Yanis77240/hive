@@ -18,7 +18,7 @@ The Python functions work with Python >= 3.6. The code varies a little wether yo
 
 ```groovy
 stage('Chose comparison') {
-    withEnv(["file=${input message: 'Select file in http://10.10.10.11:30000/repository/scala-test-reports/', parameters: [string('number of results file')]}"]) {
+    withEnv(["file=${input message: 'Select file in http://10.10.10.11:30000/path_to_the_project_results_directory/', parameters: [string('number of results file')]}"]) {
         withEnv(["number=${currentBuild.number}"]) {
             sh '''
             cd test-comparison
@@ -61,6 +61,8 @@ stage('Test') {
 ```
 
 3. Set the path `http://path_to_the_project_results_directory/` in these two stages.
+
+**Note:** You need to put the Nexus service IP in the stages since Jenkins and the builder pod access the repository inside the K8s cluster, however to access Nexus from outside of the cluster (To browse or upload files) you need the cluster IP and its associated Node port for the Nexus service.
 
 4. In the command `echo "python3 src/python/main.py {surefire-version} ${number} ${file}" > transformation.sh`, set the `{surefire-version}`. Chose between `2.14`, `2.20` and `3.0.0`.
 

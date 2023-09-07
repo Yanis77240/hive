@@ -37,7 +37,7 @@ podTemplate(containers: [
                 withCredentials([usernamePassword(credentialsId: '4b87bd68-ad4c-11ed-afa1-0242ac120002', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     withEnv(["number=${currentBuild.number}"]) {
                         /* Perform the tests and the surefire reporting*/
-                        sh 'mvn clean test --batch-mode -Dsurefire.rerunFailingTestsCount=3 --fail-never'
+                        sh 'mvn clean test --batch-mode -Dsurefire.rerunFailingTestsCount=3 --fail-never | tee ../output.txt'
                         sh 'mvn surefire-report:report-only  -Daggregate=true'
                         sh 'curl -v -u $user:$pass --upload-file target/site/surefire-report.html http://10.110.4.212:8081/repository/test-reports/hive-3.1/surefire-report-${number}.html'
                         /* extract the java-test and scalatest-plugin data output and remove all color signs */
